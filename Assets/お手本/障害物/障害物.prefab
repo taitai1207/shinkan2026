@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1320270086338153262}
   - component: {fileID: 6068719979051756677}
   - component: {fileID: 1411153991758296578}
+  - component: {fileID: 8054737879062423481}
   m_Layer: 0
   m_Name: "\u969C\u5BB3\u7269"
   m_TagString: Untagged
@@ -166,3 +167,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8054737879062423481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7213649214311007935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c064ed4cb2b62409518ccbdf0ef0fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleController
+  Speed: 0
+  isSimulating: 0
+  rigidbody: {fileID: 0}
