@@ -3,7 +3,12 @@ using UnityEngine;
 
 public class ObstacleSetController : MonoBehaviour
 {
+	[Header("Obstacle Property")]
+	[SerializeField] float GapPosition;
+	[SerializeField] float GapSize;
 	[SerializeField] float Speed;
+
+	[Header("Game Property")]
 	[SerializeField] bool isSimulating;
 
 	[Header("Setting")]
@@ -31,7 +36,8 @@ public class ObstacleSetController : MonoBehaviour
 
 	private void Awake()
 	{
-		
+		RBUpper = UpperObstacle.GetComponent<Rigidbody2D>();
+		RBDowner = DownerObstacle.GetComponent<Rigidbody2D>();
 	}
 
 	private void Start()
