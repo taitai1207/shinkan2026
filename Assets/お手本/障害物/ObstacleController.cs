@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
@@ -10,34 +10,34 @@ public class ObstacleController : MonoBehaviour
 	[SerializeField] Rigidbody2D RB;
 
 	[HideInInspector] public ObstacleManager manager;
-
+	
 	public event EventHandler<GameObject> Destroyed; 
 
 	/// <summary>
-	/// ƒJƒƒ‰‚Ì—¼’[
+	/// ã‚«ãƒ¡ãƒ©ã®ä¸¡ç«¯
 	/// </summary>
 	/// <remarks>
-	/// index : 0 => ¶’[, 1 => ‰E’[
+	/// index : 0 => å·¦ç«¯, 1 => å³ç«¯
 	/// </remarks>
 	public static float[] CameraEndPointByWorldPosition => new float[] { Camera.main.ViewportToWorldPoint(new(0, 0, 0)).x, Camera.main.ViewportToWorldPoint(new(1, 0, 0)).x };
-	/// <summary> ‘¬“x </summary>
+	/// <summary> é€Ÿåº¦ </summary>
 	Vector2 Velocity => new(Speed, 0);
 
 	private void Awake()
 	{
-		//oŒ»’¼Œã‚ÉêŠ‚ğ’²®
+		//å‡ºç¾ç›´å¾Œã«å ´æ‰€ã‚’èª¿æ•´
 		transform.position = new(CameraEndPointByWorldPosition[1] * 1.1f, 0, 0);
-		if (CameraEndPointByWorldPosition[0] > 0) Debug.Log("ƒJƒƒ‰¶’[‚ª0ˆÈã‚É‚ ‚è‚Ü‚·");
+		if (CameraEndPointByWorldPosition[0] > 0) Debug.Log("ã‚«ãƒ¡ãƒ©å·¦ç«¯ãŒ0ä»¥ä¸Šã«ã‚ã‚Šã¾ã™");
 	}
 
 	private void Update()
 	{
-		if (!isSimulating) return; //ƒvƒŒƒC’†‚Å‚È‚¯‚ê‚Î‰½‚à‚µ‚È‚¢
+		if (!isSimulating) return; //ãƒ—ãƒ¬ã‚¤ä¸­ã§ãªã‘ã‚Œã°ä½•ã‚‚ã—ãªã„
 
-		//ƒXƒs[ƒhŠÇ—
+		//ã‚¹ãƒ”ãƒ¼ãƒ‰ç®¡ç†
 		RB.linearVelocity = Velocity;
 
-		//Á–Å’²®
+		//æ¶ˆæ»…èª¿æ•´
 		if (transform.position.x < CameraEndPointByWorldPosition[0] * 1.1f)
 		{
 			Destroyed.Invoke(this, gameObject);

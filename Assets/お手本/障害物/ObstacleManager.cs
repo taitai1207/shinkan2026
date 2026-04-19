@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Android;
@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Android;
 public class ObstacleManager : MonoBehaviour
 {
     [SerializeField] GameObject Obstacle;
-
+    
     [Header("Generatrd")]
     [SerializeField] List<GameObject> GeneratedObjects;
 
