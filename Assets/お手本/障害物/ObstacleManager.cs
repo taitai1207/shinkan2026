@@ -20,7 +20,9 @@ public class ObstacleManager : MonoBehaviour
         {
             controller.manager = this;
             controller.Destroyed += OnObstacleDeleted;
-        }
+            controller.PostionSetUp();
+
+		}
 	}
 
     void OnObstacleDeleted(object sender, GameObject controller)

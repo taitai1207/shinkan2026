@@ -38,7 +38,7 @@ public class ObstacleSetController : MonoBehaviour
 
 	}
 
-	private void Start()
+	public void PostionSetUp()
 	{
 		//出現直後に場所を調整
 		//x座標
