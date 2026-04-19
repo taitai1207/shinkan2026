@@ -49,8 +49,8 @@ public class ObstacleSetController : MonoBehaviour
 
 		//各障害物のy座標調整
 		float upperSize = UpperObstacle.transform.localScale.y, downerSize = DownerObstacle.transform.localScale.y;
-		UpperObstacle.transform.position = new(0, GapPosition + GapSize / 2 + upperSize / 2);
-		DownerObstacle.transform.position = new(0, GapPosition - GapSize / 2 - downerSize / 2);
+		UpperObstacle.transform.localPosition = new(0, GapPosition + GapSize / 2 + upperSize / 2);
+		DownerObstacle.transform.localPosition = new(0, GapPosition - GapSize / 2 - downerSize / 2);
 	}
 
 	// Update is called once per frame
