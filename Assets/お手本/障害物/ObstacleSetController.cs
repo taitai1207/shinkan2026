@@ -38,7 +38,7 @@ public class ObstacleSetController : MonoBehaviour
 	{
 		//出現直後に場所を調整
 		transform.position = new(CameraEndPointByWorldPosition[1] * 1.1f, 0, 0);
-		if (CameraEndPointByWorldPosition[0] > 0) Debug.Log("カメラ左端が0以上にあります");
+		if (CameraEndPointByWorldPosition[0] > 0) Debug.Log("カメラ左端が0以上にあります");　// 不要だと思うけど一応
 	}
 
 	// Update is called once per frame
