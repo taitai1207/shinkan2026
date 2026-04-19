@@ -179,6 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c064ed4cb2b62409518ccbdf0ef0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleController
-  Speed: 0
-  isSimulating: 0
-  rigidbody: {fileID: 0}
+  Speed: -5
+  isSimulating: 1
+  RB: {fileID: 6068719979051756677}
