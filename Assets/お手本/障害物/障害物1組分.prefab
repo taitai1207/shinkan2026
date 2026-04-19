@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleSetController
   GapPosition: 0
   GapSize: 2
-  Speed: -1
+  Speed: -3
   isSimulating: 1
   UpperObstacle: {fileID: 4068061298404369588}
   DownerObstacle: {fileID: 2977190924918781089}
