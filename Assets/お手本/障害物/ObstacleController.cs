@@ -6,7 +6,7 @@ public class ObstacleController : MonoBehaviour
 	[SerializeField] bool isSimulating;
 
 	[Header("Setting")]
-	[SerializeField] Rigidbody2D rigidbody;
+	[SerializeField] Rigidbody2D RB;
 
 	Vector2 Velocity => new(Speed, 0);
 
