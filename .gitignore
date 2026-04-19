@@ -101,6 +101,7 @@ InitTestScene*.unity*
 # 以下biuntriが追加した分
 
 *.vsconfig
+.github\copilot-instructions.md
 
 # Visual Studio, Visual Studio Code用コードを追加
 
