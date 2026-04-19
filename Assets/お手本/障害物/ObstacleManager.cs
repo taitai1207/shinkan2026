@@ -1,7 +1,5 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 
 public class ObstacleManager : MonoBehaviour
 {
@@ -21,7 +19,6 @@ public class ObstacleManager : MonoBehaviour
             controller.manager = this;
             controller.Destroyed += OnObstacleDeleted;
             controller.PostionSetUp();
-
 		}
 	}
 
