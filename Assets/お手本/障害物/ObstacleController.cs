@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
@@ -7,6 +8,10 @@ public class ObstacleController : MonoBehaviour
 
 	[Header("Setting")]
 	[SerializeField] Rigidbody2D RB;
+
+	[HideInInspector] public ObstacleManager manager;
+
+	public event EventHandler<GameObject> Destroyed; 
 
 	/// <summary>
 	/// ƒJƒƒ‰‚Ì—¼’[
@@ -35,6 +40,7 @@ public class ObstacleController : MonoBehaviour
 		//Á–Å’²®
 		if (transform.position.x < CameraEndPointByWorldPosition[0] * 1.1f)
 		{
+			Destroyed.Invoke(this, gameObject);
 			Destroy(gameObject);
 		}
 	}
