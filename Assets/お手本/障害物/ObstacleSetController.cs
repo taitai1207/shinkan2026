@@ -43,8 +43,14 @@ public class ObstacleSetController : MonoBehaviour
 	private void Start()
 	{
 		//出現直後に場所を調整
+		//x座標
 		transform.position = new(CameraEndPointByWorldPosition[1] * 1.1f, 0, 0);
-		if (CameraEndPointByWorldPosition[0] > 0) Debug.Log("カメラ左端が0以上にあります");　// 不要だと思うけど一応
+		if (CameraEndPointByWorldPosition[0] > 0) Debug.Log("カメラ左端が0以上にあります"); // 不要だと思うけど一応
+
+		//各障害物のy座標調整
+		float upperSize = UpperObstacle.transform.localScale.y, downerSize = DownerObstacle.transform.localScale.y;
+		UpperObstacle.transform.position = new(0, GapPosition + GapSize / 2 + upperSize / 2);
+		DownerObstacle.transform.position = new(0, GapPosition - GapSize / 2 - downerSize / 2);
 	}
 
 	// Update is called once per frame
