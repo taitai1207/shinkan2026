@@ -8,6 +8,14 @@ public class ObstacleController : MonoBehaviour
 	[Header("Setting")]
 	[SerializeField] Rigidbody2D RB;
 
+	/// <summary>
+	/// カメラの両端
+	/// </summary>
+	/// <remarks>
+	/// index : 0 => 左端, 1 => 右端
+	/// </remarks>
+	public static float[] CameraEndPointByWorldPosition => new float[] { Camera.main.ViewportToWorldPoint(new(0, 0, 0)).x, Camera.main.ViewportToWorldPoint(new(1, 0, 0)).x };
+	/// <summary> 速度 </summary>
 	Vector2 Velocity => new(Speed, 0);
 
 	private void Update()
