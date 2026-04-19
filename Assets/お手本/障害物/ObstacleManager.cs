@@ -10,7 +10,7 @@ public class ObstacleManager : MonoBehaviour
     [Header("Generatrd")]
     [SerializeField] List<GameObject> GeneratedObjects;
 
-    void Generate()
+    public void Generate()
     {
 		GameObject obj = GameObject.Instantiate(Obstacle);
         GeneratedObjects.Add(obj);
