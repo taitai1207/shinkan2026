@@ -1,17 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-public class ObstacleController : MonoBehaviour
+public class ObstacleSetController : MonoBehaviour
 {
-    [SerializeField] float Speed;
+	[SerializeField] float Speed;
 	[SerializeField] bool isSimulating;
 
 	[Header("Setting")]
-	[SerializeField] Rigidbody2D RB;
+
+	[SerializeField] GameObject UpperObstacle;
+    [SerializeField] GameObject DownerObstacle;
+
+	private Rigidbody2D RBUpper;
+	private Rigidbody2D RBDowner;
 
 	[HideInInspector] public ObstacleManager manager;
-	
-	public event EventHandler<GameObject> Destroyed; 
+
+	public event EventHandler<GameObject> Destroyed;
+
 
 	/// <summary>
 	/// カメラの両端
@@ -25,17 +31,24 @@ public class ObstacleController : MonoBehaviour
 
 	private void Awake()
 	{
+		
+	}
+
+	private void Start()
+	{
 		//出現直後に場所を調整
 		transform.position = new(CameraEndPointByWorldPosition[1] * 1.1f, 0, 0);
 		if (CameraEndPointByWorldPosition[0] > 0) Debug.Log("カメラ左端が0以上にあります");
 	}
 
-	private void Update()
-	{
+	// Update is called once per frame
+	void Update()
+    {
 		if (!isSimulating) return; //プレイ中でなければ何もしない
 
 		//スピード管理
-		RB.linearVelocity = Velocity;
+		RBUpper.linearVelocity = Velocity;
+		RBDowner.linearVelocity = Velocity;
 
 		//消滅調整
 		if (transform.position.x < CameraEndPointByWorldPosition[0] * 1.1f)
