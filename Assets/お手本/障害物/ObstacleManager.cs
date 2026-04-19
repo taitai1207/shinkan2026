@@ -15,7 +15,7 @@ public class ObstacleManager : MonoBehaviour
 		GameObject obj = GameObject.Instantiate(Obstacle);
         GeneratedObjects.Add(obj);
 
-        ObstacleController controller = obj.GetComponent<ObstacleController>();
+        ObstacleSetController controller = obj.GetComponent<ObstacleSetController>();
         if (controller != null)
         {
             controller.manager = this;
