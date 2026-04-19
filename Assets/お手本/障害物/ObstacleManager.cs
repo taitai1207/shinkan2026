@@ -5,7 +5,7 @@ public class ObstacleManager : MonoBehaviour
 {
     [SerializeField] GameObject Obstacle;
     
-    [Header("Generatrd")]
+    [Header("Generated")]
     [SerializeField] List<GameObject> GeneratedObjects;
 
     public void Generate()
