@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6203058974145381789}
-  - component: {fileID: 3073646480373247110}
+  - component: {fileID: 6535074019269695214}
   m_Layer: 0
   m_Name: ObstacleManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3073646480373247110
+--- !u!114 &6535074019269695214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4af53cfe2663846b0c2388d1f2ed35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleManager
-  Obstacle: {fileID: 7213649214311007935, guid: 2dbf103efc9589146a67baca38d2f84a, type: 3}
+  Obstacle: {fileID: 9095637884828664810, guid: 0effcbc0bce58924a846a4eb9164b704, type: 3}
   GeneratedObjects: []
