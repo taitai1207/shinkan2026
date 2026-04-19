@@ -46,6 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4cc9c7b2a95d14ca2ae8988062db9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleSetController
+  GapPosition: 0
+  GapSize: 2
+  Speed: -1
+  isSimulating: 1
+  UpperObstacle: {fileID: 4068061298404369588}
+  DownerObstacle: {fileID: 2977190924918781089}
+  manager: {fileID: 0}
 --- !u!1001 &5570140075360285214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,6 +115,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5512617044076877353, guid: 2dbf103efc9589146a67baca38d2f84a, type: 3}
   m_PrefabInstance: {fileID: 5570140075360285214}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2977190924918781089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7213649214311007935, guid: 2dbf103efc9589146a67baca38d2f84a, type: 3}
+  m_PrefabInstance: {fileID: 5570140075360285214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6658765078564741643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,5 +180,10 @@ PrefabInstance:
 --- !u!4 &1218241779813839906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5512617044076877353, guid: 2dbf103efc9589146a67baca38d2f84a, type: 3}
+  m_PrefabInstance: {fileID: 6658765078564741643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4068061298404369588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7213649214311007935, guid: 2dbf103efc9589146a67baca38d2f84a, type: 3}
   m_PrefabInstance: {fileID: 6658765078564741643}
   m_PrefabAsset: {fileID: 0}
