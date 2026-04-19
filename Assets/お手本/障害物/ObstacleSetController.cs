@@ -16,8 +16,7 @@ public class ObstacleSetController : MonoBehaviour
 	[SerializeField] GameObject UpperObstacle;
     [SerializeField] GameObject DownerObstacle;
 
-	private Rigidbody2D RBUpper;
-	private Rigidbody2D RBDowner;
+	[SerializeField] Rigidbody2D RB;
 
 	[HideInInspector] public ObstacleManager manager;
 
@@ -36,8 +35,7 @@ public class ObstacleSetController : MonoBehaviour
 
 	private void Awake()
 	{
-		RBUpper = UpperObstacle.GetComponent<Rigidbody2D>();
-		RBDowner = DownerObstacle.GetComponent<Rigidbody2D>();
+
 	}
 
 	private void Start()
@@ -59,8 +57,7 @@ public class ObstacleSetController : MonoBehaviour
 		if (!isSimulating) return; //プレイ中でなければ何もしない
 
 		//スピード管理
-		RBUpper.linearVelocity = Velocity;
-		RBDowner.linearVelocity = Velocity;
+		RB.linearVelocity = Velocity;
 
 		//消滅調整
 		if (transform.position.x < CameraEndPointByWorldPosition[0] * 1.1f)
