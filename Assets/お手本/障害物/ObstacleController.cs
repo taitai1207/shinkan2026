@@ -9,20 +9,33 @@ public class ObstacleController : MonoBehaviour
 	[SerializeField] Rigidbody2D RB;
 
 	/// <summary>
-	/// 繧ｫ繝｡繝ｩ縺ｮ荳｡遶ｯ
+	/// カメラの両端
 	/// </summary>
 	/// <remarks>
-	/// index : 0 => 蟾ｦ遶ｯ, 1 => 蜿ｳ遶ｯ
+	/// index : 0 => 左端, 1 => 右端
 	/// </remarks>
 	public static float[] CameraEndPointByWorldPosition => new float[] { Camera.main.ViewportToWorldPoint(new(0, 0, 0)).x, Camera.main.ViewportToWorldPoint(new(1, 0, 0)).x };
-	/// <summary> 騾溷ｺｦ </summary>
+	/// <summary> 速度 </summary>
 	Vector2 Velocity => new(Speed, 0);
+
+	private void Awake()
+	{
+		//出現直後に場所を調整
+		transform.position = new(CameraEndPointByWorldPosition[1] * 1.1f, 0, 0);
+		if (CameraEndPointByWorldPosition[0] > 0) Debug.Log("カメラ左端が0以上にあります");
+	}
 
 	private void Update()
 	{
 		if (!isSimulating) return; //プレイ中でなければ何もしない
 
-		//動作管理
-		rigidbody.linearVelocity = Velocity;
+		//スピード管理
+		RB.linearVelocity = Velocity;
+
+		//消滅調整
+		if (transform.position.x < CameraEndPointByWorldPosition[0] * 1.1f)
+		{
+			Destroy(gameObject);
+		}
 	}
 }
