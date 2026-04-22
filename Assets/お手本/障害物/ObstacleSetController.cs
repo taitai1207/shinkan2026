@@ -62,8 +62,12 @@ public class ObstacleSetController : MonoBehaviour
 		//消滅調整
 		if (transform.position.x < CameraEndPointByWorldPosition[0] * 1.1f)
 		{
-			Destroyed?.Invoke(this, gameObject);
 			Destroy(gameObject);
 		}
+	}
+
+	private void OnDestroy()
+	{
+		Destroyed?.Invoke(this, gameObject);
 	}
 }
