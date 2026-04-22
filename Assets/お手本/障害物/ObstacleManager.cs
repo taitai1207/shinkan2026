@@ -26,4 +26,36 @@ public class ObstacleManager : MonoBehaviour
     {
         GeneratedObjects.Remove(controller);
     }
+
+	public void GameStop()
+    {
+        foreach(GameObject obj in GeneratedObjects)
+        {
+			ObstacleSetController controller = obj.GetComponent<ObstacleSetController>();
+            if (controller != null)
+            {
+				controller.isSimulating = false;
+            }
+		}
+    }
+
+	public void GameRestart()
+    {
+		foreach (GameObject obj in GeneratedObjects)
+		{
+			ObstacleSetController controller = obj.GetComponent<ObstacleSetController>();
+			if (controller != null)
+			{
+				controller.isSimulating = true;
+			}
+		}
+	}
+
+    public void GameReset()
+    {
+		foreach (GameObject obj in GeneratedObjects)
+		{
+			Destroy(obj);
+		}
+	}
 }
