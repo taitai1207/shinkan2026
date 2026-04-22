@@ -9,7 +9,7 @@ public class ObstacleSetController : MonoBehaviour
 	[SerializeField] float Speed;
 
 	[Header("Game Property")]
-	[SerializeField] bool isSimulating;
+	public bool isSimulating;
 
 	[Header("Setting")]
 
