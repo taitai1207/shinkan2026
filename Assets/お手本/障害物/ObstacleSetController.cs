@@ -54,15 +54,20 @@ public class ObstacleSetController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		if (!isSimulating) return; //プレイ中でなければ何もしない
-
-		//スピード管理
-		RB.linearVelocity = Velocity;
-
-		//消滅調整
-		if (transform.position.x < CameraEndPointByWorldPosition[0] * 1.1f)
+		if (!isSimulating)
 		{
-			Destroy(gameObject);
+			RB.linearVelocity = Vector2.zero; //プレイ中でなければ止める
+		}
+		else
+		{
+			//スピード管理
+			RB.linearVelocity = Velocity;
+
+			//消滅調整
+			if (transform.position.x < CameraEndPointByWorldPosition[0] * 1.1f)
+			{
+				Destroy(gameObject);
+			}
 		}
 	}
 
