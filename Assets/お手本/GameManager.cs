@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
 
     CancellationTokenSource CTS;
 
+	private void Start()
+	{
+        GenerateObstaclesPermanentlyAsync(CTS.Token).Forget();
+	}
+
 	#region Obstacle
 	async UniTask CreateObstacleAsync(CancellationToken token)
     {
