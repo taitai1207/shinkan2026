@@ -56,12 +56,18 @@ public class GameManager : MonoBehaviour
 
 
 	#region Obstacle
+    /// <summary>
+    /// 障害物を1つ作る
+    /// </summary>
 	async UniTask CreateObstacleAsync(CancellationToken token)
     {
         ObstacleManager.Generate();
         await UniTask.WaitForSeconds(ObstacleInterval);
     }
 
+    /// <summary>
+    /// 障害物を作り続ける
+    /// </summary>
     async UniTask GenerateObstaclesPermanentlyAsync(CancellationToken token)
     {
         try
