@@ -25,8 +25,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
 	void GameStart()
     {
-		CTS = new();
-		GenerateObstaclesPermanentlyAsync(CTS.Token).Forget();
+        StartCreateObstacle();
 	}
 
     /// <summary>
@@ -35,7 +34,7 @@ public class GameManager : MonoBehaviour
     public void GameOver(Bird bird)
     {
         this.bird = bird;
-
+        StopCreateObstacle();
         GOCController.GameOverShow = true;
     }
 
@@ -57,8 +56,28 @@ public class GameManager : MonoBehaviour
 
 	#region Obstacle
     /// <summary>
-    /// 障害物を1つ作る
+    /// 障害物の生成を開始
     /// </summary>
+    void StartCreateObstacle()
+    {
+		CTS = new();
+		GenerateObstaclesPermanentlyAsync(CTS.Token).Forget();
+        ObstacleManager.GameRestart();
+	}
+
+    /// <summary>
+    /// 障害物の生成を中止
+    /// </summary>
+    void StopCreateObstacle()
+    {
+        CTS.Cancel();
+        CTS = null;
+        ObstacleManager.GameStop();
+    }
+
+	/// <summary>
+	/// 障害物を1つ作る
+	/// </summary>
 	async UniTask CreateObstacleAsync(CancellationToken token)
     {
         ObstacleManager.Generate();
