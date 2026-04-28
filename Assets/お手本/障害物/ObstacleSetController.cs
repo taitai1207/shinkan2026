@@ -20,6 +20,9 @@ public class ObstacleSetController : MonoBehaviour
 
 	[HideInInspector] public ObstacleManager manager;
 
+	/// <summary>
+	/// オブジェクトが破壊されたときに呼ばれるイベント
+	/// </summary>
 	public event EventHandler<GameObject> Destroyed;
 
 
@@ -38,6 +41,9 @@ public class ObstacleSetController : MonoBehaviour
 
 	}
 
+	/// <summary>
+	/// 出現直後の場所調整に使う
+	/// </summary>
 	public void PostionSetUp()
 	{
 		//出現直後に場所を調整
@@ -51,7 +57,9 @@ public class ObstacleSetController : MonoBehaviour
 		DownerObstacle.transform.localPosition = new(0, GapPosition - GapSize / 2 - downerSize / 2);
 	}
 
-	// Update is called once per frame
+	/// <summary>
+	/// 毎フレーム呼ばれる
+	/// </summary>
 	void Update()
     {
 		if (!isSimulating)
@@ -71,6 +79,10 @@ public class ObstacleSetController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// オブジェクトが破壊されたときに呼ばれる関数
+	/// 破壊イベントを発火
+	/// </summary>
 	private void OnDestroy()
 	{
 		Destroyed?.Invoke(this, gameObject);
