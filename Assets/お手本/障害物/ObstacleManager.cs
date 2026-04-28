@@ -6,13 +6,19 @@ public class ObstacleManager : MonoBehaviour
     [SerializeField] GameObject Obstacle;
     
     [Header("Generated")]
+    /// 今生きている障害物の一覧
     [SerializeField] List<GameObject> GeneratedObjects;
 
+    /// <summary>
+    /// 障害物生成
+    /// </summary>
     public void Generate()
     {
+        // 障害物を作る
 		GameObject obj = GameObject.Instantiate(Obstacle);
         GeneratedObjects.Add(obj);
 
+        // コントローラーの設定
         ObstacleSetController controller = obj.GetComponent<ObstacleSetController>();
         if (controller != null)
         {
@@ -22,11 +28,20 @@ public class ObstacleManager : MonoBehaviour
 		}
 	}
 
-    void OnObstacleDeleted(object sender, GameObject controller)
+	/// <summary>
+	/// 障害物が消えたときに呼ばれる
+	/// 「今生きている障害物の一覧」から対象を削除
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="controller"></param>
+	void OnObstacleDeleted(object sender, GameObject controller)
     {
         GeneratedObjects.Remove(controller);
     }
 
+    /// <summary>
+    /// ゲームを一時停止
+    /// </summary>
 	public void GameStop()
     {
         foreach(GameObject obj in GeneratedObjects)
@@ -39,6 +54,9 @@ public class ObstacleManager : MonoBehaviour
 		}
     }
 
+    /// <summary>
+    /// 一時停止状態から再開
+    /// </summary>
 	public void GameRestart()
     {
 		foreach (GameObject obj in GeneratedObjects)
@@ -51,6 +69,10 @@ public class ObstacleManager : MonoBehaviour
 		}
 	}
 
+    /// <summary>
+    /// ゲームをリセット
+    /// 障害物を全部消す
+    /// </summary>
     public void GameReset()
     {
 		foreach (GameObject obj in GeneratedObjects)
