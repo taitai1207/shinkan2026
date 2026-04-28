@@ -14,8 +14,40 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-        GenerateObstaclesPermanentlyAsync(CTS.Token).Forget();
+        GameStart();
 	}
+
+	#region GameManagement
+    /// <summary>
+    /// ゲーム開始時に呼ばれるメソッド
+    /// </summary>
+	void GameStart()
+    {
+		CTS = new();
+		GenerateObstaclesPermanentlyAsync(CTS.Token).Forget();
+	}
+
+    /// <summary>
+    /// GameOver時に呼ばれるメソッド
+    /// </summary>
+    public void GameOver(Bird bird)
+    {
+        this.bird = bird;
+        // UIをゲームオーバー仕様にする
+        //
+    }
+
+    Bird bird;
+	/// <summary>
+	/// ゲームリセット時に呼ばれるメソッド
+	/// </summary>
+	public void GameReset()
+    {
+        //リセット処理をする
+        GameStart();
+    }
+	#endregion
+
 
 	#region Obstacle
 	async UniTask CreateObstacleAsync(CancellationToken token)
