@@ -35,8 +35,8 @@ public class GameManager : MonoBehaviour
     public void GameOver(Bird bird)
     {
         this.bird = bird;
-        // UIをゲームオーバー仕様にする
-        //
+
+        GOCController.GameOverShow = true;
     }
 
     Bird bird;
@@ -46,7 +46,11 @@ public class GameManager : MonoBehaviour
 	public void GameReset()
     {
         //リセット処理をする
-        GameStart();
+        GOCController.GameOverShow = false;
+        ObstacleManager.GameReset();
+        bird.GameReset();
+
+		GameStart();
     }
 	#endregion
 

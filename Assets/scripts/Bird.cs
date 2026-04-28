@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
@@ -22,8 +22,13 @@ public class Bird : MonoBehaviour
             rigidbody.AddForce(upForce, ForceMode2D.Impulse);
         }
     }
-    
-    void OnCollisionEnter(Collision collision)
+
+	public void GameReset()
+	{
+		throw new NotImplementedException();
+	}
+
+	void OnCollisionEnter(Collision collision)
     {
         //ゲームオーバーになった時の処理を呼んでいます
         Debug.Log("gameover");
