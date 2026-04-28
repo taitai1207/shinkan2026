@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
@@ -20,6 +21,12 @@ public class Bird : MonoBehaviour
             Vector2 upForce = new Vector2(0.0f, force); // 力の方向と大きさ
             rigidbody.AddForce(upForce, ForceMode2D.Impulse);
         }
-        
+    }
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        //ゲームオーバーになった時の処理を呼んでいます
+        Debug.Log("gameover");
+        //GameOver();
     }
 }
