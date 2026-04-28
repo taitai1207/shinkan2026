@@ -1,16 +1,39 @@
-using UnityEngine;
+﻿using UnityEngine;
+using System;
+using Cysharp.Threading.Tasks;
+using System.Threading;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] ObstacleManager ObstacleManager;
+
+    [Header("障害物")]
+    [SerializeField] float ObstacleInterval;
+
+    CancellationTokenSource CTS;
+
+	#region Obstacle
+	async UniTask CreateObstacleAsync(CancellationToken token)
     {
-        
+        ObstacleManager.Generate();
+        await UniTask.WaitForSeconds(ObstacleInterval);
     }
 
-    // Update is called once per frame
-    void Update()
+    async UniTask GenerateObstaclesPermanentlyAsync(CancellationToken token)
     {
-        
+        try
+        {
+            while (true) await CreateObstacleAsync(token);
+        }
+        catch (OperationCanceledException)
+        {
+            // CancellationTokenSourceのは握り潰してOK
+        }
+        catch
+        {
+            throw;
+        }
     }
+
+	#endregion
 }
