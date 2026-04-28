@@ -5,10 +5,12 @@ using System.Threading;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] ObstacleManager ObstacleManager;
-
     [Header("Obstacle")]
+    [SerializeField] ObstacleManager ObstacleManager;
     [SerializeField] float ObstacleInterval;
+
+    [Header("UI")]
+    [SerializeField] GameOverCanvasController GOCController;
 
     CancellationTokenSource CTS;
 
