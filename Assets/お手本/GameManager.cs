@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] ObstacleManager ObstacleManager;
 
-    [Header("障害物")]
+    [Header("Obstacle")]
     [SerializeField] float ObstacleInterval;
 
     CancellationTokenSource CTS;
