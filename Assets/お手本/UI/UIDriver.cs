@@ -5,7 +5,7 @@
 /// </summary>
 public class UIDriver : MonoBehaviour
 {
-	[SerializeField] GameOveCanvasController GOCCon;
+	[SerializeField] GameOverCanvasController GOCCon;
 	bool done = false;
 	private void Update()
 	{

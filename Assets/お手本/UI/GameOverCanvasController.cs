@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GameOveCanvasController : MonoBehaviour
+public class GameOverCanvasController : MonoBehaviour
 {
 	[SerializeField] Canvas Canvas;
 	public bool GameOverShow
