@@ -37,8 +37,9 @@ public class ObstacleManager : MonoBehaviour
             controller.Destroyed += OnObstacleDeleted;
 
             //位置調整
-
-            controller.PostionSetUp(0, 30);
+            float position = Random.Range(-GapCenterRange, GapCenterRange);
+            float size = GapSizeAtFirst;
+            controller.PostionSetUp(position, size);
 		}
         GeneratedObstacleCount++;
 	}
