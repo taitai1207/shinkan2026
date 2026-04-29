@@ -5,6 +5,11 @@ public class ObstacleManager : MonoBehaviour
 {
     [SerializeField] GameObject Obstacle;
     
+    [Header("Position")]
+    [SerializeField] float GapCenterRange;
+    [SerializeField] float GapSizeAtFirst;
+    [SerializeField] int GapSizeDecayHalfTime;
+    
     [Header("Generated")]
     /// 今生きている障害物の一覧
     [SerializeField] List<GameObject> GeneratedObjects;
