@@ -96,7 +96,9 @@ public class GameManager : MonoBehaviour
 	async UniTask CreateObstacleAsync(CancellationToken token)
     {
         ObstacleManager.Generate();
-        await UniTask.WaitForSeconds(ObstacleInterval, cancellationToken: token);
+        // バランス調整に必要なら使ってね
+        // int GeneratedObstacleCount = ObstacleManager.GeneratedObstacleCount;
+		await UniTask.WaitForSeconds(ObstacleInterval, cancellationToken: token);
     }
 
     /// <summary>
