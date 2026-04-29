@@ -17,7 +17,7 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !gameManager.IsGameOver)
         {
             Debug.Log(rigidbody.linearVelocity);
             Vector2 upForce = new Vector2(0.0f, force); // 力の方向と大きさ
