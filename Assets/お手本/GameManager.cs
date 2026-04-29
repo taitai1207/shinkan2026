@@ -14,11 +14,23 @@ public class GameManager : MonoBehaviour
 
     CancellationTokenSource CTS;
 
+    private bool isgameOver;
+    public bool IsGameOver => isgameOver;
+
 	private void Start()
 	{
         GameStart();
+		isgameOver = false;
 	}
 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R) && isgameOver)
+		{
+			GameReset();
+		}
+	}
+	
 	#region GameManagement
     /// <summary>
     /// ゲーム開始時に呼ばれるメソッド
@@ -34,8 +46,10 @@ public class GameManager : MonoBehaviour
     public void GameOver(Bird bird)
     {
         this.bird = bird;
-        StopCreateObstacle();
+        //if(CTS != null)
+			StopCreateObstacle();
         GOCController.GameOverShow = true;
+        isgameOver = true;
     }
 
     Bird bird;
@@ -46,6 +60,7 @@ public class GameManager : MonoBehaviour
     {
         //リセット処理をする
         GOCController.GameOverShow = false;
+        isgameOver = false;
         ObstacleManager.GameReset();
         bird.GameReset();
 
@@ -60,7 +75,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void StartCreateObstacle()
     {
-		CTS = new();
+		CTS = new CancellationTokenSource();
 		GenerateObstaclesPermanentlyAsync(CTS.Token).Forget();
         ObstacleManager.GameRestart();
 	}
@@ -70,7 +85,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void StopCreateObstacle()
     {
-        CTS.Cancel();
+		CTS.Cancel();
         CTS = null;
         ObstacleManager.GameStop();
     }
@@ -81,7 +96,7 @@ public class GameManager : MonoBehaviour
 	async UniTask CreateObstacleAsync(CancellationToken token)
     {
         ObstacleManager.Generate();
-        await UniTask.WaitForSeconds(ObstacleInterval);
+        await UniTask.WaitForSeconds(ObstacleInterval, cancellationToken: token);
     }
 
     /// <summary>
