@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 	async UniTask CreateObstacleAsync(CancellationToken token)
     {
         ObstacleManager.Generate();
-        await UniTask.WaitForSeconds(ObstacleInterval);
+        await UniTask.WaitForSeconds(ObstacleInterval, cancellationToken: token);
     }
 
     /// <summary>
