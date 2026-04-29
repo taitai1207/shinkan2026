@@ -24,8 +24,10 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.R))
-		{}
+		if (Input.GetKeyDown(KeyCode.R) && isgameOver)
+		{
+			GameReset();
+		}
 	}
 	
 	#region GameManagement
@@ -43,8 +45,10 @@ public class GameManager : MonoBehaviour
     public void GameOver(Bird bird)
     {
         this.bird = bird;
-        StopCreateObstacle();
+        if(CTS != null)
+			StopCreateObstacle();
         GOCController.GameOverShow = true;
+        isgameOver = true;
     }
 
     Bird bird;
@@ -80,7 +84,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void StopCreateObstacle()
     {
-        CTS.Cancel();
+		CTS.Cancel();
         CTS = null;
         ObstacleManager.GameStop();
     }
