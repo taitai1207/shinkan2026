@@ -4,7 +4,7 @@ using UnityEngine;
 public class ObstacleManager : MonoBehaviour
 {
     [SerializeField] GameObject Obstacle;
-    
+
     [Header("Position")]
     [SerializeField] float GapCenterRange;
     [SerializeField] float GapSizeAtFirst;
@@ -14,12 +14,14 @@ public class ObstacleManager : MonoBehaviour
     /// 今生きている障害物の一覧
     [SerializeField] List<GameObject> GeneratedObjects;
 
+    int GeneratedObstacleCount;
+
     /// <summary>
     /// 障害物生成
     /// </summary>
     public void Generate()
     {
-        // 障害物を作る
+		// 障害物を作る
 		GameObject obj = GameObject.Instantiate(Obstacle);
         GeneratedObjects.Add(obj);
 
@@ -31,6 +33,7 @@ public class ObstacleManager : MonoBehaviour
             controller.Destroyed += OnObstacleDeleted;
             controller.PostionSetUp(0, 30);
 		}
+        GeneratedObstacleCount++;
 	}
 
 	/// <summary>
@@ -80,6 +83,7 @@ public class ObstacleManager : MonoBehaviour
     /// </summary>
     public void GameReset()
     {
+        GeneratedObstacleCount = 0;
 		foreach (GameObject obj in GeneratedObjects)
 		{
 			Destroy(obj);
