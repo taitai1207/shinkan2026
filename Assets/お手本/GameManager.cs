@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void GameOver(Bird bird)
     {
         this.bird = bird;
-        if(CTS != null)
+        //if(CTS != null)
 			StopCreateObstacle();
         GOCController.GameOverShow = true;
         isgameOver = true;
