@@ -24,7 +24,7 @@ public class ObstacleManager : MonoBehaviour
         {
             controller.manager = this;
             controller.Destroyed += OnObstacleDeleted;
-            controller.PostionSetUp();
+            controller.PostionSetUp(0, 30);
 		}
 	}
 

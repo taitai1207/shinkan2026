@@ -4,8 +4,6 @@ using UnityEngine;
 public class ObstacleSetController : MonoBehaviour
 {
 	[Header("Obstacle Property")]
-	[SerializeField] float GapPosition;
-	[SerializeField] float GapSize;
 	[SerializeField] float Speed;
 
 	[Header("Game Property")]
@@ -44,7 +42,7 @@ public class ObstacleSetController : MonoBehaviour
 	/// <summary>
 	/// 出現直後の場所調整に使う
 	/// </summary>
-	public void PostionSetUp()
+	public void PostionSetUp(float GapPosition, float GapSize)
 	{
 		//出現直後に場所を調整
 		//x座標
