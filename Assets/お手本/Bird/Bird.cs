@@ -27,7 +27,7 @@ public class Bird : MonoBehaviour
 
 	public void GameReset()
 	{
-		throw new NotImplementedException();
+		this.transform.position = new Vector3(-5.0f, 0.0f, 0.0f);
 	}
 
     void OnCollisionEnter2D(Collision2D collision)
