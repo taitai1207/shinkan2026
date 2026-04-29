@@ -8,12 +8,16 @@ public class ObstacleManager : MonoBehaviour
     [Header("Position")]
     [SerializeField] float GapCenterRange;
     [SerializeField] float GapSizeAtFirst;
-    [SerializeField] int GapSizeDecayHalfTime;
+    //[SerializeField] int GapSizeDecayHalfTime;
     
     [Header("Generated")]
     /// 今生きている障害物の一覧
     [SerializeField] List<GameObject> GeneratedObjects;
 
+    /// <summary>
+    /// 障害物の生成数をカウント
+    /// 複雑なバランス調整をしたい人は活用してください
+    /// </summary>
     int GeneratedObstacleCount;
 
     /// <summary>
@@ -31,6 +35,9 @@ public class ObstacleManager : MonoBehaviour
         {
             controller.manager = this;
             controller.Destroyed += OnObstacleDeleted;
+
+            //位置調整
+
             controller.PostionSetUp(0, 30);
 		}
         GeneratedObstacleCount++;
