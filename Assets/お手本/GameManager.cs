@@ -14,11 +14,20 @@ public class GameManager : MonoBehaviour
 
     CancellationTokenSource CTS;
 
+    private bool isgameOver;
+
 	private void Start()
 	{
         GameStart();
+		isgameOver = false;
 	}
 
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.R))
+		{}
+	}
+	
 	#region GameManagement
     /// <summary>
     /// ゲーム開始時に呼ばれるメソッド
@@ -46,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         //リセット処理をする
         GOCController.GameOverShow = false;
+        isgameOver = false;
         ObstacleManager.GameReset();
         bird.GameReset();
 
@@ -60,7 +70,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void StartCreateObstacle()
     {
-		CTS = new();
+		CTS = new CancellationTokenSource();
 		GenerateObstaclesPermanentlyAsync(CTS.Token).Forget();
         ObstacleManager.GameRestart();
 	}

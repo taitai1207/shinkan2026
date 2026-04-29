@@ -7,8 +7,7 @@
     <list default="true" id="7ff17a8b-dea9-4033-901d-c6e124461dfc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.My project (2)/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.My project (2)/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/scripts/Bird.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Bird.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/お手本/Scenes/お手本.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/お手本/Scenes/お手本.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/お手本/taitai/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/お手本/taitai/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/お手本/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/お手本/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/お手本/障害物/障害物1組分.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/お手本/障害物/障害物1組分.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +100,7 @@
       <workItem from="1775025842275" duration="678000" />
       <workItem from="1775565987280" duration="2192000" />
       <workItem from="1777186801792" duration="1064000" />
-      <workItem from="1777345975111" duration="6513000" />
+      <workItem from="1777345975111" duration="13704000" />
     </task>
     <servers />
   </component>
@@ -133,19 +132,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/scripts/Bird.cs</url>
-          <line>26</line>
-          <properties documentPath="C:\Users\taiya\My project (2)\Assets\scripts\Bird.cs" containingFunctionPresentation="Method 'OnCollisionEnter'">
-            <startOffsets>
-              <option value="670" />
-            </startOffsets>
-            <endOffsets>
-              <option value="671" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
