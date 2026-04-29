@@ -19,7 +19,6 @@ public class Bird : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(rigidbody.linearVelocity);
             Vector2 upForce = new Vector2(0.0f, force); // 力の方向と大きさ
             rigidbody.AddForce(upForce, ForceMode2D.Impulse);
         }
