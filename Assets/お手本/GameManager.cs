@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     CancellationTokenSource CTS;
 
     private bool isgameOver;
+    public bool IsGameOver => isgameOver;
 
 	private void Start()
 	{
