@@ -14,11 +14,15 @@ public class ObstacleManager : MonoBehaviour
     /// 今生きている障害物の一覧
     [SerializeField] List<GameObject> GeneratedObjects;
 
-    /// <summary>
-    /// 障害物の生成数をカウント
-    /// 複雑なバランス調整をしたい人は活用してください
-    /// </summary>
-    int GeneratedObstacleCount;
+    int _GeneratedObstacleCount;
+	/// <summary>
+	/// 障害物の生成数をカウント
+	/// 複雑なバランス調整をしたい人は活用してください
+	/// </summary>
+	public int GeneratedObstacleCount
+    {
+        private set => _GeneratedObstacleCount = value; get => _GeneratedObstacleCount;
+	}
 
     /// <summary>
     /// 障害物生成
