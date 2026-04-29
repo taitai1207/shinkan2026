@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     CancellationTokenSource CTS;
 
     private bool isgameOver;
+    public bool IsGameOver => isgameOver;
 
 	private void Start()
 	{
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour
     public void GameOver(Bird bird)
     {
         this.bird = bird;
-        if(CTS != null)
+        //if(CTS != null)
 			StopCreateObstacle();
         GOCController.GameOverShow = true;
         isgameOver = true;
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour
 	async UniTask CreateObstacleAsync(CancellationToken token)
     {
         ObstacleManager.Generate();
-        await UniTask.WaitForSeconds(ObstacleInterval);
+        await UniTask.WaitForSeconds(ObstacleInterval, cancellationToken: token);
     }
 
     /// <summary>

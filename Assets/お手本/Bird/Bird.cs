@@ -17,7 +17,7 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !gameManager.IsGameOver)
         {
             Vector2 upForce = new Vector2(0.0f, force); // 力の方向と大きさ
             rigidbody.AddForce(upForce, ForceMode2D.Impulse);
@@ -31,6 +31,10 @@ public class Bird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //ゲームオーバー済みなら呼ばない
+        if (gameManager.IsGameOver) return;
+
+        Debug.Log("Game Over!");
         //ゲームオーバーになった時の処理を呼んでいます
         gameManager.GameOver(this);
     }
