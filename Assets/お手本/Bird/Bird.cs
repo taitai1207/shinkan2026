@@ -32,6 +32,9 @@ public class Bird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //ゲームオーバー済みなら呼ばない
+        if (gameManager.IsGameOver) return;
+
         Debug.Log("Game Over!");
         //ゲームオーバーになった時の処理を呼んでいます
         gameManager.GameOver(this);
