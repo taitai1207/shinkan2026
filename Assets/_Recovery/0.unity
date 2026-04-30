@@ -165,8 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleManager
   Obstacle: {fileID: 9095637884828664810, guid: 0effcbc0bce58924a846a4eb9164b704, type: 3}
-  GapCenterRange: 2.5
-  GapSizeAtFirst: 4
   GeneratedObjects: []
 --- !u!114 &2748952
 MonoBehaviour:
