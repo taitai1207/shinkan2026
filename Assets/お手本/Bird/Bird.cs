@@ -5,7 +5,8 @@ public class Bird : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
     private GameManager gameManager;
-    private float force = 5.0f;
+    private float force = 2.5f;
+    private float cooldownExpiry = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,10 +18,11 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !gameManager.IsGameOver)
+        if (Input.GetKeyDown(KeyCode.Space) && !gameManager.IsGameOver && Time.time > cooldownExpiry)
         {
             Vector2 upForce = new Vector2(0.0f, force); // 力の方向と大きさ
             rigidbody.AddForce(upForce, ForceMode2D.Impulse);
+            cooldownExpiry = Time.time + 0.2f;
         }
     }
 
